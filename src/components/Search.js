@@ -1,13 +1,12 @@
 import React from 'react';
-
+import Gallery from './Gallery';
 
 const Search = (props) => {
-  console.log(props)
   return(
     <div>
       <form>
         <input className='valoare' type="text" />
-        <button onClick={props.search}>search for anything you want </button>
+        <button onClick={props.buton}>search for anything you want </button>
       </form>
     </div>
   );
