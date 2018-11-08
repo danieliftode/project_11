@@ -9,9 +9,8 @@ const Nav = (props) => {
     <nav>
       <ul>
         <li><Link to='/cats'>cats</Link></li>
-        <li><Link to='#'>dogs</Link></li>
-        <li><Link to='#'>bids</Link></li>
-        <li><Link to='/testing'>this takes me to testing component</Link></li>
+        <li><Link to='/bmw'>bmv</Link></li>
+        <li><Link to='/mercedes'>mercedes</Link></li>
       </ul>
     </nav>
   )

@@ -20,3 +20,15 @@ input, button{
   font-size: 30px;
   border: 1px solid green;
 }
+ul{
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+li{
+  border: 1px solid red;
+  color: blue;
+  font-size: 50px;
+  display: inline;
+  padding: 30px;
+}
