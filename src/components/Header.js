@@ -1,8 +1,8 @@
 import React from 'react';
-import Search from './Search';
+//import Search from './Search';
 import Nav from './Nav';
-import Gallery from './Gallery';
-import {Link} from 'react-router-dom';
+//import Gallery from './Gallery';
+
 //merge
 const Header = (props) => {
   return (

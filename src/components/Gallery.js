@@ -4,20 +4,22 @@ import axios from 'axios';
 import apiKey  from '../config.js';
 import Search from './Search';
 import Header from './Header';
+import '../style.css';
 
 
 class Gallery  extends Component  {
   state = {
     gallery: [],
-    cautare: ['cats', 'bmw'],
-    test:  1
+    test:  1,
+    val: ''
   }
 
 searchHandler = (e) => {
   e.preventDefault();
-  const val = document.querySelector('.valoare').value;
-  const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&user_id=&tags=${val}&per_page=18&format=json&nojsoncallback=1`
+  this.state.val = document.querySelector('.valoare').value;
+  const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&user_id=&tags=${this.state.val}&per_page=18&format=json&nojsoncallback=1`
   this.fetchPic(url);
+
 }
 
 //////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -33,7 +35,7 @@ searchHandler = (e) => {
 
 
 componentDidMount(){
-  const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&user_id=&tags=${this.state.cautare[0]}&per_page=18&format=json&nojsoncallback=1`
+  const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&user_id=&tags=${this.props.link}&per_page=18&format=json&nojsoncallback=1`
   this.fetchPic(url);
 }
 
@@ -52,16 +54,19 @@ fetchPic = (url) =>{
 }
 
   render(){
-
   return(
     <div>
+
       <Search buton={this.searchHandler}/>
-      <h1>this is how i separate my components </h1>
+      <Header />
+      <h1 className='results'>Pictures of {this.state.val ? this.state.val : this.props.link}</h1>
+      <div className='gallery-container'>
       {this.state.gallery.map((i,x) => {
         return (
           <Picture pic={i} key={x++}/>
         )
       })}
+    </div>
     </div>
   );
 }
