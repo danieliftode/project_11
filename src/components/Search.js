@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import Gallery from './Gallery';
+import React from 'react';
+//import Gallery from './Gallery';
 //import apiKey  from '../config.js';
 
 
@@ -40,11 +40,13 @@ const Search = (props) => {
 //   //}
 // }
 
+
+//here the Search component is defined and given functions by the parrent element wich is gallery
   return(
-    <div class='cauta'>
+    <div className='cauta'>
       <form>
         <input className='valoare' type="text" />
-        <button onClick={props.buton}><i class="fa fa-search"></i></button>
+        <button onClick={props.buton}><i className="fa fa-search"></i></button>
       </form>
     </div>
   );

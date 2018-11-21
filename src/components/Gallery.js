@@ -6,14 +6,16 @@ import Search from './Search';
 import Header from './Header';
 import '../style.css';
 
-
+///defining state
 class Gallery  extends Component  {
   state = {
     gallery: [],
-    test:  1,
     val: ''
   }
 
+//this function takes a input value and add's it to a variable wich then is used in the request link to the apiKey
+//the request to the api beeing a separate function (fetchPic(url))
+//e.preventDefault is a method wich cancels out the "flick/twich" of the input tag behavior
 searchHandler = (e) => {
   e.preventDefault();
   this.state.val = document.querySelector('.valoare').value;
@@ -33,14 +35,14 @@ searchHandler = (e) => {
 //   console.log(this.state.test);
 // }
 
-
+/// react lifecycle method wich renders (executes) imediatly to the dom
 componentDidMount(){
   const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&user_id=&tags=${this.props.link}&per_page=18&format=json&nojsoncallback=1`
   this.fetchPic(url);
 }
 
 
-///cererea la baza de date si crearea de this.state.gallery e rezolvata
+///request to the api using axios and takes the response and asigns some pictures into gallery state variable (defined previously as empy)
 fetchPic = (url) =>{
   axios.get(url).then(response => {
     const test = response.data.photos.photo
@@ -54,6 +56,7 @@ fetchPic = (url) =>{
 }
 
   render(){
+
   return(
     <div>
 
@@ -63,7 +66,7 @@ fetchPic = (url) =>{
       <div className='gallery-container'>
       {this.state.gallery.map((i,x) => {
         return (
-          <Picture pic={i} key={x++}/>
+          <Picture pic={i} key={x++} comment={this.props.link}/>
         )
       })}
     </div>

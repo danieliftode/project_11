@@ -9,13 +9,12 @@ import Gallery from './components/Gallery';
 import './style.css';
 //import  apiKey from './config';
 //import axios from 'axios';
-
 //import Testing from './components/Testing';
 
 class App extends Component  {
 
 
-
+//the entire job of this component is to keep up the "history " and call in components on the dom as the user navigates
   render(){
     return(
       <BrowserRouter >

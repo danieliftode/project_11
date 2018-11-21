@@ -5,6 +5,7 @@ import Nav from './Nav';
 
 //merge
 const Header = (props) => {
+  //simple header component where the nav "children sits " for separation of concern purposes 
   return (
     <div>
       <Nav />
