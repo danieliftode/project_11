@@ -18,7 +18,11 @@ class Gallery  extends Component  {
 //e.preventDefault is a method wich cancels out the "flick/twich" of the input tag behavior
 searchHandler = (e) => {
   e.preventDefault();
-  this.state.val = document.querySelector('.valoare').value;
+  const word = document.querySelector('.valoare').value;
+  this.setState({
+    val : word
+  })
+  //this.state.val = document.querySelector('.valoare').value;
   const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&user_id=&tags=${this.state.val}&per_page=18&format=json&nojsoncallback=1`
   this.fetchPic(url);
 
@@ -66,7 +70,7 @@ fetchPic = (url) =>{
       <div className='gallery-container'>
       {this.state.gallery.map((i,x) => {
         return (
-          <Picture pic={i} key={x++} comment={this.props.link}/>
+          <Picture pic={i} key={Math.floor(Math.random() * 99999)} comment={this.props.link}/>
         )
       })}
     </div>
